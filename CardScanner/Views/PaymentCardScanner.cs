@@ -35,7 +35,6 @@ namespace CardScanner.Views
         private const int NameMinLength = 6;
         private const int NameMaxLength = 30;
         private const int DateLength = 5;
-        const int SkipCount = 10;
         const int MaxQueueCount = 30;
         const int MaxCandidates = 100;
         const string needAccessTitle = "Need Camera Access";
@@ -45,7 +44,6 @@ namespace CardScanner.Views
 
         int _queueCount;
         Dictionary<CardValueType, List<string>> _candidates;
-
         ICollection<int> _cardNumberSplitParts;
         ICollection<int> _cardNameSplitParts;
 
@@ -56,8 +54,7 @@ namespace CardScanner.Views
         private UITapGestureRecognizer _cardNumberGestureRecognizer;
         private UITapGestureRecognizer _cardNameGestureRecognizer;
         private UITapGestureRecognizer _cardExpirationGestureRecognizer;
-
-        private CGRect CardRect;
+        private CGRect _cardRect;
 
         public Action<string, string, DateTime> OnCompleted { get; set; }
 
@@ -226,7 +223,7 @@ namespace CardScanner.Views
 
             CardHeightConstraint.Constant = CardWidthConstraint.Constant - (CardWidthConstraint.Constant * .37f);
 
-            CardRect = new CGRect(GuideView.Card.Frame.X, GuideView.Card.Frame.Y, CardWidthConstraint.Constant, CardHeightConstraint.Constant);
+            _cardRect = new CGRect(GuideView.Card.Frame.X, GuideView.Card.Frame.Y, CardWidthConstraint.Constant, CardHeightConstraint.Constant);
         }
 
         private void ResetForm()
@@ -412,7 +409,7 @@ namespace CardScanner.Views
             using (var ciImage = new CIImage(imageBuffer))
             using (var resizeFilter = GetImageFilter(ciImage))
             using (var outputImage = resizeFilter.OutputImage)
-            using (var croppedImage = outputImage.ImageByCroppingToRect(CardRect))
+            using (var croppedImage = outputImage.ImageByCroppingToRect(_cardRect))
             using (var imageRequestHandler = new VNImageRequestHandler(croppedImage, options: new NSDictionary()))
             using (var textRequest = GetTextRequest())
             {
@@ -546,9 +543,9 @@ namespace CardScanner.Views
 
         private CGRect GetCardLocation(CGRect frame)
         {
-            var scaleX = CardRect.Width + (CardRect.Width * (_previewLayer.Frame.Width / frame.Width));
-            var scaleY = CardRect.Height + (CardRect.Height * (_previewLayer.Frame.Height / frame.Height));
-            var cardLocation = new CGRect(CardRect.X, CardRect.Y, CardRect.Width, CardRect.Height).Inset(-scaleX, -scaleY);
+            var scaleX = _cardRect.Width + (_cardRect.Width * (_previewLayer.Frame.Width / frame.Width));
+            var scaleY = _cardRect.Height + (_cardRect.Height * (_previewLayer.Frame.Height / frame.Height));
+            var cardLocation = new CGRect(_cardRect.X, _cardRect.Y, _cardRect.Width, _cardRect.Height).Inset(-scaleX, -scaleY);
             cardLocation.X = (frame.Width / 2) - (cardLocation.Width / 2);
             cardLocation.Y = (frame.Height / 2) - (cardLocation.Height / 2);
 
