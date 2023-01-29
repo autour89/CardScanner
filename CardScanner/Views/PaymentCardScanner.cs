@@ -428,10 +428,7 @@ namespace CardScanner.Views
 
                 if (texts != null && texts.Any())
                 {
-                    DispatchQueue.MainQueue.DispatchAsync(() =>
-                    {
-                        ExtractPaymentCardData(texts.ToList());
-                    });
+                    ExtractPaymentCardData(texts);
                 }
             });
 
@@ -442,7 +439,7 @@ namespace CardScanner.Views
             };
         }
 
-        private void ExtractPaymentCardData(List<string> candidates)
+        private void ExtractPaymentCardData(IEnumerable<string> candidates)
         {
             if (_queueCount <= MaxQueueCount)
             {
