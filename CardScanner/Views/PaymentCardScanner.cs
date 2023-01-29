@@ -458,45 +458,6 @@ namespace CardScanner.Views
             }
         }
 
-        private void ExtractPaymentCardDataTest(IEnumerable<string> candidates)
-        {
-            foreach (var line in candidates)
-            {
-                var edited = line.Trim().Replace(" ", string.Empty);
-
-                if (line.IsOnlyNumbers() && edited.Count() >= CardMinLength && edited.Count() <= CardMaxLength)
-                {
-                    if (CardNumber != line)//line.Length > CardNumber.Length)
-                    {
-                        CardNumber = line;
-
-                        NumberLabel.Text = CardNumber;
-                    }
-                }
-                if (line.IsExpirationDate())// && edited.Length == DateLength)
-                {
-                    var expDate = edited.ExpirationDate();
-
-                    if (DateTime.Compare(Expiration, expDate) != 0)
-                    {
-                        Expiration = expDate;
-
-                        ExpirationDateLabel.Text = Expiration.ToString("MM / yy");
-                    }
-                }
-
-                if (line.IsisOnlyAlpha() && line.Trim().Contains(" ") && edited.Count() >= NameMinLength && edited.Count() <= NameMaxLength)
-                {
-                    if (CardName != line)//string.IsNullOrEmpty(CardName) || line.Length > CardName.Length)//CardName != line)// && line.Length >= CardName.Length)
-                    {
-                        CardName = line;
-
-                        NameLabel.Text = CardName.ToUpper();
-                    }
-                }
-            }
-        }
-
         private void AddQueue(IEnumerable<string> candidates, bool update = true)
         {
             _candidates[CardValueType.Number].AddRange(candidates.Where(x => x.IsOnlyNumbers() && _cardNumberSplitParts.Any(part => part == x.Split().Length) && GetLength(x) >= CardMinLength && GetLength(x) <= CardMaxLength));

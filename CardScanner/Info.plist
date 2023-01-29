@@ -13,7 +13,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
-	<string>12.4</string>
+	<string>15.0</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Allow to access camera</string>
 	<key>NSPhotoLibraryUsageDescription</key>
