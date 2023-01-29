@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad10_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <accessibilityOverrides/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentCardScanner">
+            <connections>
+                <outlet property="CameraView" destination="DRG-vN-iws" id="2iI-dj-BJV"/>
+                <outlet property="CardHeightConstraint" destination="tte-Go-CUL" id="CoK-SW-2sq"/>
+                <outlet property="CardWidthConstraint" destination="eU6-GO-2Lt" id="RDW-fd-lR0"/>
+                <outlet property="CloseButton" destination="XEQ-Hf-LW8" id="rfj-eK-bk2"/>
+                <outlet property="ConfirmButton" destination="6Xd-Jf-dhn" id="NPH-aW-Z17"/>
+                <outlet property="ExpirationDateLabel" destination="g5K-1i-5Yp" id="qcD-rb-m7F"/>
+                <outlet property="FlashlightButton" destination="Ety-6A-o1x" id="Xiv-7H-Aaa"/>
+                <outlet property="GuideView" destination="eeR-Ho-kTX" id="C5b-2Q-X1S"/>
+                <outlet property="NameLabel" destination="l86-Bd-tti" id="ciD-X4-QqL"/>
+                <outlet property="NumberLabel" destination="uv6-Ji-vHh" id="hmI-qw-Srt"/>
+                <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRG-vN-iws" userLabel="Camera View">
+                    <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeR-Ho-kTX" userLabel="Guide View" customClass="PartialBlurredView">
+                    <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2G-f7-oeW" userLabel="Payment card">
+                            <rect key="frame" x="340" y="260" width="500" height="300"/>
+                            <subviews>
+                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1111 1111 1111 1111" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uv6-Ji-vHh" userLabel="Number">
+                                    <rect key="frame" x="40" y="152.5" width="440" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="AhB-rv-nJu"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11/11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5K-1i-5Yp" userLabel="Expiration date">
+                                    <rect key="frame" x="403" y="197.5" width="57" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="SZ9-Mv-E4r"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="19"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name on card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l86-Bd-tti" userLabel="Name">
+                                    <rect key="frame" x="40" y="242.5" width="420" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="9qf-TR-Os3"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="19"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="g5K-1i-5Yp" firstAttribute="top" secondItem="uv6-Ji-vHh" secondAttribute="bottom" constant="10" id="0EQ-gj-gFj"/>
+                                <constraint firstItem="l86-Bd-tti" firstAttribute="leading" secondItem="e2G-f7-oeW" secondAttribute="leading" constant="40" id="6Rn-nE-sDZ"/>
+                                <constraint firstAttribute="trailing" secondItem="uv6-Ji-vHh" secondAttribute="trailing" constant="20" id="8Na-bW-5Ne"/>
+                                <constraint firstItem="l86-Bd-tti" firstAttribute="top" secondItem="g5K-1i-5Yp" secondAttribute="bottom" constant="15" id="I74-zg-oAX"/>
+                                <constraint firstItem="g5K-1i-5Yp" firstAttribute="trailing" secondItem="uv6-Ji-vHh" secondAttribute="trailing" constant="-20" id="ROa-SW-BJJ"/>
+                                <constraint firstAttribute="trailing" secondItem="l86-Bd-tti" secondAttribute="trailing" constant="40" id="dcV-er-awF"/>
+                                <constraint firstAttribute="width" constant="500" id="eU6-GO-2Lt"/>
+                                <constraint firstAttribute="height" constant="300" id="tte-Go-CUL"/>
+                                <constraint firstItem="uv6-Ji-vHh" firstAttribute="leading" secondItem="e2G-f7-oeW" secondAttribute="leading" constant="40" id="vWa-qR-15f"/>
+                                <constraint firstItem="uv6-Ji-vHh" firstAttribute="centerY" secondItem="e2G-f7-oeW" secondAttribute="centerY" constant="20" id="zsm-lI-ZUP"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ety-6A-o1x" userLabel="Flashlight Button">
+                            <rect key="frame" x="350" y="575" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="fEN-Kf-mzF"/>
+                                <constraint firstAttribute="height" constant="40" id="zC6-TC-XfN"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal">
+                                <imageReference key="image" image="flashlight.off.fill" catalog="system" symbolScale="large"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                            </state>
+                            <state key="selected">
+                                <imageReference key="image" image="flashlight.on.fill" catalog="system" symbolScale="large"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                            </state>
+                            <connections>
+                                <action selector="OnFlashlightTap" destination="-1" eventType="touchUpInside" id="O2j-Xk-soz"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Xd-Jf-dhn" userLabel="Confirm Button">
+                            <rect key="frame" x="547.5" y="575" width="85" height="40"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Confirm"/>
+                            <connections>
+                                <action selector="OnConfirnTap" destination="-1" eventType="touchUpInside" id="9Gw-zQ-9DE"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEQ-Hf-LW8" userLabel="Close Button">
+                            <rect key="frame" x="25" y="25" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="GfU-NX-lnh"/>
+                                <constraint firstAttribute="width" constant="40" id="zZq-7U-4xx"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal">
+                                <imageReference key="image" image="xmark.circle.fill" catalog="system" symbolScale="large"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22"/>
+                            </state>
+                            <state key="selected" image="xmark" catalog="system"/>
+                            <state key="highlighted">
+                                <imageReference key="image" image="xmark.circle" catalog="system" symbolScale="large"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22"/>
+                            </state>
+                            <connections>
+                                <action selector="OnCloseTap" destination="-1" eventType="touchUpInside" id="JyM-tZ-Roo"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zmz-KH-pLH">
+                            <rect key="frame" x="542" y="31.5" width="96.5" height="27.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="6Xd-Jf-dhn" firstAttribute="top" secondItem="e2G-f7-oeW" secondAttribute="bottom" constant="15" id="9pE-u4-zbf"/>
+                        <constraint firstItem="Zmz-KH-pLH" firstAttribute="centerX" secondItem="eeR-Ho-kTX" secondAttribute="centerX" id="Bwo-CP-mBw"/>
+                        <constraint firstItem="XEQ-Hf-LW8" firstAttribute="leading" secondItem="eeR-Ho-kTX" secondAttribute="leading" constant="25" id="D4O-zM-IIg"/>
+                        <constraint firstItem="e2G-f7-oeW" firstAttribute="centerX" secondItem="eeR-Ho-kTX" secondAttribute="centerX" id="PqW-Ao-y0l"/>
+                        <constraint firstItem="Zmz-KH-pLH" firstAttribute="centerY" secondItem="XEQ-Hf-LW8" secondAttribute="centerY" id="SFl-bL-39t"/>
+                        <constraint firstItem="Ety-6A-o1x" firstAttribute="top" secondItem="e2G-f7-oeW" secondAttribute="bottom" constant="15" id="TAu-bp-XNt"/>
+                        <constraint firstItem="Ety-6A-o1x" firstAttribute="leading" secondItem="e2G-f7-oeW" secondAttribute="leading" constant="10" id="Wb5-yF-93v"/>
+                        <constraint firstItem="e2G-f7-oeW" firstAttribute="centerY" secondItem="eeR-Ho-kTX" secondAttribute="centerY" id="gzz-tj-lxZ"/>
+                        <constraint firstItem="6Xd-Jf-dhn" firstAttribute="centerX" secondItem="e2G-f7-oeW" secondAttribute="centerX" id="jIo-XN-pZ4"/>
+                        <constraint firstItem="XEQ-Hf-LW8" firstAttribute="top" secondItem="eeR-Ho-kTX" secondAttribute="top" constant="25" id="ril-0b-0SP"/>
+                        <constraint firstItem="6Xd-Jf-dhn" firstAttribute="centerY" secondItem="Ety-6A-o1x" secondAttribute="centerY" id="ruq-pP-65Z"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="CardView" destination="e2G-f7-oeW" id="NBI-VG-M3B"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="eeR-Ho-kTX" secondAttribute="trailing" id="9f5-b3-UPd"/>
+                <constraint firstItem="DRG-vN-iws" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="PJF-Lr-SkU"/>
+                <constraint firstAttribute="bottom" secondItem="DRG-vN-iws" secondAttribute="bottom" id="Uqa-Ya-Rrz"/>
+                <constraint firstAttribute="bottom" secondItem="eeR-Ho-kTX" secondAttribute="bottom" id="hVE-AL-S6x"/>
+                <constraint firstItem="eeR-Ho-kTX" firstAttribute="top" secondItem="2" secondAttribute="top" id="i6U-1q-Oob"/>
+                <constraint firstItem="eeR-Ho-kTX" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="kXU-ES-zHW"/>
+                <constraint firstItem="DRG-vN-iws" firstAttribute="top" secondItem="2" secondAttribute="top" id="qjB-XY-nzE"/>
+                <constraint firstAttribute="trailing" secondItem="DRG-vN-iws" secondAttribute="trailing" id="thB-M5-jTN"/>
+            </constraints>
+            <point key="canvasLocation" x="-16" y="-17"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="flashlight.off.fill" catalog="system" width="78" height="128"/>
+        <image name="flashlight.on.fill" catalog="system" width="78" height="128"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <image name="xmark.circle" catalog="system" width="128" height="123"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
+    </resources>
+</document>
