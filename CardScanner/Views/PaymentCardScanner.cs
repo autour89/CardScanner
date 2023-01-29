@@ -41,6 +41,7 @@ namespace CardScanner.Views
         const string cameraAccessMessage = "Camera access is required to make full use of this app.";
         const string allowCameraTitle = "Allow Camera";
         const string cancelTitle = "Cancel";
+        const string addCardTitle = "Add Card";
 
         int _queueCount;
         Dictionary<CardValueType, List<string>> _candidates;
@@ -120,17 +121,12 @@ namespace CardScanner.Views
 
         public PaymentCardScanner() : base(nameof(PaymentCardScanner), default) { }
 
-        public static UINavigationController GetScanner()
+        public static UINavigationController ScannerView => new UINavigationController(new PaymentCardScanner())
         {
-            var nc = new UINavigationController(new PaymentCardScanner())
-            {
-                NavigationBarHidden = false,
-                Title = "Add Card",
-                ModalPresentationStyle = UIModalPresentationStyle.FullScreen
-            };
-
-            return nc;
-        }
+            NavigationBarHidden = false,
+            Title = addCardTitle,
+            ModalPresentationStyle = UIModalPresentationStyle.FullScreen
+        };
 
         public override void ViewDidLoad()
         {
