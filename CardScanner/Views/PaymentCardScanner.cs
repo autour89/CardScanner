@@ -460,7 +460,6 @@ namespace CardScanner.Views
 
         private void ResetQueue()
         {
-
             _candidates[CardValueType.Number].Clear();
             _candidates[CardValueType.Name].Clear();
             _candidates[CardValueType.Expiration].Clear();
@@ -562,9 +561,7 @@ namespace CardScanner.Views
         private void Unload()
         {
             NumberLabel.RemoveGestureRecognizer(_cardNumberGestureRecognizer);
-
             NameLabel.RemoveGestureRecognizer(_cardNameGestureRecognizer);
-
             ExpirationDateLabel.RemoveGestureRecognizer(_cardExpirationGestureRecognizer);
         }
     }
