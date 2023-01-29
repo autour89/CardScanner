@@ -34,23 +34,6 @@ namespace CardScanner.ViewModels
             return result;
         }
 
-        //public static bool IsNumeric(this string input) => long.TryParse(input, out long _);
-
-        //public static bool IsOnlyNumbers(this string input) => Regex.IsMatch(input.Trim().Replace(" ", string.Empty), @"^[0-9]+$");
-
-        //public static bool IsCardNumber(this string input) => Regex.IsMatch(input, @"^[1-9][0-9]{3}([0-9]{4}){3}$");
-
-        //public static bool IsExpirationDate(this string input) => DateTime.TryParseExact(input.Trim().Replace(" ", string.Empty), "MM/yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out _);
-
-        //public static DateTime ExpirationDate(this string input)
-        //{
-        //    DateTime.TryParseExact(input.Trim().Replace(" ", string.Empty), "MM/yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result);
-
-        //    return result;
-        //}
-
-        //public static bool IsisOnlyAlpha(this string input) => Regex.IsMatch(input.Trim().Replace(" ", string.Empty), @"^[a-zA-Z]+$");
-
         public static void FillSuperview(this UIView view, UIView superView)
         {
             view.TranslatesAutoresizingMaskIntoConstraints = false;
