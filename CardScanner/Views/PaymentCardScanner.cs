@@ -351,7 +351,7 @@ namespace CardScanner.Views
             }
             else if (permissions == AVAuthorizationStatus.Denied)
             {
-                AlertCameraAccessNeeded();
+                InvokeOnMainThread(AlertCameraAccessNeeded);
             }
             else
             {
@@ -374,28 +374,25 @@ namespace CardScanner.Views
 
         private void AlertCameraAccessNeeded()
         {
-            BeginInvokeOnMainThread(() =>
+            var alertView = new AlertView()
             {
-                var alertView = new AlertView()
-                {
-                    Title = needAccessTitle,
-                    Message = cameraAccessMessage,
-                    OnDismiss = () => DismissViewController(true, default)
-                };
+                Title = needAccessTitle,
+                Message = cameraAccessMessage,
+                OnDismiss = () => DismissViewController(true, default)
+            };
 
-                alertView.PopoverPresentationController.SourceView = View;
-                alertView.PopoverPresentationController.SourceRect = new CGRect(View.Bounds.GetMidX(), View.Bounds.GetMidY(), 0, 0);
-                alertView.PopoverPresentationController.PermittedArrowDirections = new UIPopoverArrowDirection();
+            alertView.PopoverPresentationController.SourceView = View;
+            alertView.PopoverPresentationController.SourceRect = new CGRect(View.Bounds.GetMidX(), View.Bounds.GetMidY(), 0, 0);
+            alertView.PopoverPresentationController.PermittedArrowDirections = new UIPopoverArrowDirection();
 
-                alertView.AddAction(UIAlertAction.Create(allowCameraTitle, UIAlertActionStyle.Default, (_) =>
-                {
-                    alertView.DismissModalViewController(true);
-                    UIApplication.SharedApplication.OpenUrl(new NSUrl(UIApplication.OpenSettingsUrlString));
-                }));
-                alertView.AddAction(UIAlertAction.Create(cancelTitle, UIAlertActionStyle.Destructive, (_) => alertView.DismissModalViewController(true)));
+            alertView.AddAction(UIAlertAction.Create(allowCameraTitle, UIAlertActionStyle.Default, (_) =>
+            {
+                alertView.DismissModalViewController(true);
+                UIApplication.SharedApplication.OpenUrl(new NSUrl(UIApplication.OpenSettingsUrlString));
+            }));
+            alertView.AddAction(UIAlertAction.Create(cancelTitle, UIAlertActionStyle.Destructive, (_) => alertView.DismissModalViewController(true)));
 
-                PresentModalViewController(alertView, true);
-            });
+            PresentModalViewController(alertView, true);
         }
 
         private void OutputRecorder(CMSampleBuffer sampleBuffer)
