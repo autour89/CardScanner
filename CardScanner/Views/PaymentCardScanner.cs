@@ -333,8 +333,6 @@ namespace CardScanner.Views
 
         private void SetCameraOrientation()
         {
-            var ornt = UIDevice.CurrentDevice.Orientation;
-
             if (_previewLayer.Connection != null)
             {
                 _previewLayer.Connection.VideoOrientation = UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight ? AVCaptureVideoOrientation.LandscapeRight : AVCaptureVideoOrientation.LandscapeLeft;
@@ -445,17 +443,13 @@ namespace CardScanner.Views
             }
         }
 
-        private void AddQueue(IEnumerable<string> candidates, bool update = true)
+        private void AddQueue(IEnumerable<string> candidates)
         {
             _candidates[CardValueType.Number].AddRange(candidates.Where(x => x.IsOnlyNumbers() && _cardNumberSplitParts.Any(part => part == x.Split().Length) && GetLength(x) >= CardMinLength && GetLength(x) <= CardMaxLength));
             _candidates[CardValueType.Name].AddRange(candidates.Where(x => x.IsisOnlyAlpha() && x.IsAllUpper() && _cardNameSplitParts.Any(part => part == x.Split().Length) && GetLength(x) >= NameMinLength && GetLength(x) <= NameMaxLength));
             _candidates[CardValueType.Expiration].AddRange(candidates.Where(x => x.IsExpirationDate()));
 
-            if (update)
-            {
-                _queueCount++;
-            }
-
+            _queueCount++;
         }
 
         private void ResetQueue()
@@ -566,5 +560,3 @@ namespace CardScanner.Views
         }
     }
 }
-
-

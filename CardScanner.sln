@@ -5,6 +5,8 @@ VisualStudioVersion = 25.0.1703.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardScanner", "CardScanner\CardScanner.csproj", "{50FF16E8-CE5C-4F51-9878-70B8FCFC0980}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardScanner.maui", "CardScanner.maui\CardScanner.maui.csproj", "{D6D7F8B1-0889-4023-B3D3-B52F92559E88}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -21,6 +23,14 @@ Global
 		{50FF16E8-CE5C-4F51-9878-70B8FCFC0980}.Debug|iPhone.Build.0 = Debug|iPhone
 		{50FF16E8-CE5C-4F51-9878-70B8FCFC0980}.Release|iPhone.ActiveCfg = Release|iPhone
 		{50FF16E8-CE5C-4F51-9878-70B8FCFC0980}.Release|iPhone.Build.0 = Release|iPhone
+		{D6D7F8B1-0889-4023-B3D3-B52F92559E88}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{D6D7F8B1-0889-4023-B3D3-B52F92559E88}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{D6D7F8B1-0889-4023-B3D3-B52F92559E88}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{D6D7F8B1-0889-4023-B3D3-B52F92559E88}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{D6D7F8B1-0889-4023-B3D3-B52F92559E88}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{D6D7F8B1-0889-4023-B3D3-B52F92559E88}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{D6D7F8B1-0889-4023-B3D3-B52F92559E88}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{D6D7F8B1-0889-4023-B3D3-B52F92559E88}.Release|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
