@@ -86,6 +86,7 @@
       <DependentUpon>PartialBlurredView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\AlertView.cs" />
+    <Compile Include="Views\NewCardScanner.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FirstViewController.cs" />

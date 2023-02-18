@@ -15,6 +15,7 @@ using CoreVideo;
 using Foundation;
 using UIKit;
 using Vision;
+using VisionKit;
 using Xamarin.Essentials;
 using static Xamarin.Essentials.Permissions;
 
